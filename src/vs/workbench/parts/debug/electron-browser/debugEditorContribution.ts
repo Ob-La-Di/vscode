@@ -164,6 +164,14 @@ export class DebugEditorContribution implements IDebugEditorContribution {
 				true,
 				() => Promise.resolve(this.editor.getContribution<IDebugEditorContribution>(EDITOR_CONTRIBUTION_ID).showBreakpointWidget(lineNumber, undefined, BreakpointWidgetContext.LOG_MESSAGE))
 			));
+			actions.push(new Action(
+				'addExceptionBreakpoint',
+				nls.localize('addExceptionBreakpoint', "Add Exception Breakpoint"),
+				null,
+				true,
+				() => this.debugService.addBreakpoints(uri, [{ lineNumber, exceptionBreakpoint: true }])
+			));
+
 		}
 
 		return Promise.resolve(actions);
