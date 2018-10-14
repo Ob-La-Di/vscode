@@ -298,6 +298,7 @@ export interface IBreakpointData {
 	readonly condition?: string;
 	readonly logMessage?: string;
 	readonly hitCondition?: string;
+	readonly exceptionBreakpoint?: boolean;
 }
 
 export interface IBreakpointUpdateData {
